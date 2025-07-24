@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Guddu 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #fff0f5, #ffe4e1);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 20px;
+      color: #4a0072;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5em;
+      color: #ff4081;
+    }
+    .cake {
+      margin-top: 40px;
+    }
+    .cake img {
+      width: 250px;
+      animation: float 2s infinite ease-in-out;
+      cursor: pointer;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .button {
+      margin-top: 20px;
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy 17th Birthday Guddu! 🎉</h1>
+  <p>Tap the cake to blow out the candles and make a wish!</p>
+  <div class="cake">
+    <img src="cake17.gif" alt="Birthday Cake with 17 Candles" onclick="blowCandles()">
+  </div>
+  <button class="button" onclick="blowCandles()">Blow Candles 🎂</button>
+
+  <script>
+    function blowCandles() {
+      alert("💨 Candles blown! Cake piece is served to you, my love 💖");
+    }
+  </script>
+</body>
+</html>
+
+24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance > 0) {
+        daysEl.textContent = days;
+        hoursEl.textContent = hours;
+        minutesEl.textContent = minutes;
+        secondsEl.textContent = seconds;
+      } else {
+        clearInterval(interval);
+        document.getElementById("countdown").style.display = "none";
+        document.querySelector(".unwrap-section").style.display = "block";
+      }
+    }, 1000);
+
+    function showLetter() {
+      document.getElementById("letter").style.display = "block";
+      launchFireworks();
+    }
+
+    function launchFireworks() {
+      const fireworkContainer = document.createElement("div");
+      fireworkContainer.style.position = "fixed";
+      fireworkContainer.style.top = 0;
+      fireworkContainer.style.left = 0;
+      fireworkContainer.style.width = "100%";
+      fireworkContainer.style.height = "100%";
+      fireworkContainer.style.pointerEvents = "none";
+      fireworkContainer.style.zIndex = 9999;
+      document.body.appendChild(fireworkContainer);
+
+      for (let i = 0; i < 30; i++) {
+        const firework = document.createElement("div");
+        firework.style.position = "absolute";
+        firework.style.width = "6px";
+        firework.style.height = "6px";
+        firework.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+        firework.style.borderRadius = "50%";
+        firework.style.top = "50%";
+        firework.style.left = "50%";
+        fireworkContainer.appendChild(firework);
+
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * 200 + 100;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        firework.animate([
+          { transform: 'translate(0, 0)', opacity: 1 },
+          { transform: `translate(${x}px, ${y}px)`, opacity: 0 }
+        ], {
+          duration: 1000 + Math.random() * 500,
+          easing: 'ease-out',
+          fill: 'forwards'
+        });
+
+        setTimeout(() => firework.remove(), 1800);
+      }
+
+      setTimeout(() => fireworkContainer.remove(), 2500);
+    }
+  </script>
+</body>
+</html>
